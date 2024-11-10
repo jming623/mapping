@@ -1,1 +1,1 @@
-rootProject.name = "com.ordiotz.mapping"
+rootProject.name = "com.ordiotz.mapping.app"
