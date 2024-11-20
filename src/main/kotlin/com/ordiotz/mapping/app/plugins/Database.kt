@@ -4,10 +4,11 @@ import io.ktor.server.application.*
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import org.jetbrains.exposed.sql.Database
+import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
 
 fun Application.configureDatabases() {
-    val driverClass = "org.mariadb.jdbc.Driver"
-    val url = "jdbc:mariadb://43.203.127.146:3306"
+    val driverClass = "com.mysql.cj.jdbc.Driver"
+    val url = "jdbc:mysql://43.203.127.146:3306"
     val user = "ordiotz"
     val password = "ordiotz123"
     val databaseName = "test"
@@ -25,3 +26,5 @@ private fun provideDataSource(url: String, driverClass: String) = HikariDataSour
         validate()
     }
 )
+
+suspend fun <T> dbQuery(block: () -> T): T = newSuspendedTransaction { block() }

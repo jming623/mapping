@@ -6,6 +6,7 @@ val ktor_version: String by project
 val exposed_version: String by project
 val hikaricp_version: String by project
 val maria_version: String by project
+val mysql_version: String by project
 
 plugins {
     kotlin("jvm") version "2.0.21"
@@ -41,6 +42,7 @@ dependencies {
     implementation("io.ktor:ktor-server-websockets-jvm")
     implementation("io.ktor:ktor-serialization-kotlinx-json-jvm")
     implementation("com.zaxxer:HikariCP:$hikaricp_version")
+    implementation("com.mysql:mysql-connector-j:$mysql_version")
     implementation("org.mariadb.jdbc:mariadb-java-client:$maria_version")
     testImplementation("io.ktor:ktor-server-test-host-jvm")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")

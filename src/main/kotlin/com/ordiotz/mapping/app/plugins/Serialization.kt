@@ -14,6 +14,7 @@ fun Application.configureSerialization() {
             isLenient = true
         })
     }
+    // Json 반환 Test (ContentNegotiation 설정 안되면 406반환)
     routing {
         get("/json/kotlinx-serialization") {
             call.respond(mapOf("hello" to "world"))
